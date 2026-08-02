@@ -164,7 +164,7 @@ DEMO_JOBS = [
 
 def seed_skills(db: Session) -> int:
     """Insert the master skill catalog if absent. Returns inserted count."""
-    existing = {row.name for row in db.scalars(select(Skill.name)).all()}
+    existing = set(db.scalars(select(Skill.name)).all())
     inserted = 0
     for name, (category, weight, aliases) in SKILL_CATALOG.items():
         if name not in existing:
@@ -178,7 +178,7 @@ def seed_skills(db: Session) -> int:
 
 def seed_jobs(db: Session) -> int:
     """Insert demo jobs if absent. Returns inserted count."""
-    existing = {row.external_key for row in db.scalars(select(Job.external_key)).all()}
+    existing = set(db.scalars(select(Job.external_key)).all())
     inserted = 0
     for job_data in DEMO_JOBS:
         if job_data["external_key"] not in existing:
