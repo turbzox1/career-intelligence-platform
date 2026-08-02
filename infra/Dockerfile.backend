@@ -1,0 +1,30 @@
+# Career Intelligence Platform — Backend API image
+FROM python:3.13-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1
+
+WORKDIR /app
+
+# System dependencies for resume parsing (libmagic) and wheel builds.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libmagic1 \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy source (backend package + ML artifacts must share the repo layout
+# because the model loader resolves artifacts relative to the repo root).
+COPY backend/ /app/backend/
+COPY ml/ /app/ml/
+
+# Install backend with the ML extras (CatBoost, SHAP, MLflow).
+RUN pip install --upgrade pip && \
+    pip install "./backend[ml]"
+
+WORKDIR /app/backend
+
+EXPOSE 8000
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
