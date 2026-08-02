@@ -1,0 +1,11 @@
+# Normalise line endings across platforms.
+* text=auto eol=lf
+
+# Binary artifacts
+*.joblib binary
+*.pkl binary
+*.cbm binary
+*.db binary
+*.png binary
+*.jpg binary
+*.ico binary

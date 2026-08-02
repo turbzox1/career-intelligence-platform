@@ -1,0 +1,93 @@
+{
+  "model_name": "catboost",
+  "model_version": "1.0.0",
+  "trained_at": "2026-08-01T12:36:37.805369+00:00",
+  "n_samples": 10000,
+  "feature_spec_length": 33,
+  "feature_names": [
+    "years_experience",
+    "skill_count",
+    "degree_ordinal",
+    "company_size_ordinal",
+    "location=remote",
+    "location=san_francisco",
+    "location=new_york",
+    "location=seattle",
+    "location=austin",
+    "location=london",
+    "location=bengaluru",
+    "location=berlin",
+    "location=toronto",
+    "location=singapore",
+    "industry=technology",
+    "industry=finance",
+    "industry=healthcare",
+    "industry=retail",
+    "industry=manufacturing",
+    "industry=consulting",
+    "industry=education",
+    "industry=media",
+    "industry=energy",
+    "title=software_engineer",
+    "title=data_scientist",
+    "title=ml_engineer",
+    "title=devops_engineer",
+    "title=product_manager",
+    "title=data_engineer",
+    "title=backend_engineer",
+    "title=frontend_engineer",
+    "title=fullstack_engineer",
+    "title=site_reliability_engineer"
+  ],
+  "categorical_levels": {
+    "location": [
+      "remote",
+      "san_francisco",
+      "new_york",
+      "seattle",
+      "austin",
+      "london",
+      "bengaluru",
+      "berlin",
+      "toronto",
+      "singapore"
+    ],
+    "industry": [
+      "technology",
+      "finance",
+      "healthcare",
+      "retail",
+      "manufacturing",
+      "consulting",
+      "education",
+      "media",
+      "energy"
+    ],
+    "title": [
+      "software_engineer",
+      "data_scientist",
+      "ml_engineer",
+      "devops_engineer",
+      "product_manager",
+      "data_engineer",
+      "backend_engineer",
+      "frontend_engineer",
+      "fullstack_engineer",
+      "site_reliability_engineer"
+    ]
+  },
+  "metrics": {
+    "mae": 13316.32,
+    "rmse": 17710.61,
+    "r2": 0.9419,
+    "mape": 0.0654
+  },
+  "cv_metrics": {
+    "cv_mae_mean": 15658.1128,
+    "cv_rmse_mean": 22309.8783,
+    "cv_r2_mean": 0.9078,
+    "cv_mape_mean": 0.0748
+  },
+  "residual_std": 17710.61,
+  "baseline_mae": 13316.32
+}

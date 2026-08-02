@@ -1,0 +1,47 @@
+[project]
+name = "career-ml"
+version = "1.0.0"
+description = "ML training pipeline and shared feature engineering for the Career Intelligence Platform"
+requires-python = ">=3.12,<3.15"
+dependencies = [
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.5.0",
+    "xgboost>=2.1.0",
+    "lightgbm>=4.5.0",
+    "catboost>=1.2.5",
+    "shap>=0.46.0",
+    "mlflow>=2.15.0",
+    "pyyaml>=6.0.1",
+    "joblib>=1.4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-cov>=5.0.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["career_ml*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4", "E402"]
+ignore = ["B008", "BLE001", "C408", "RUF100"]
+
+[tool.ruff.lint.per-file-ignores]
+"pipeline/*" = ["E402", "E501"]
+"tests/*" = ["E402", "E501"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["career_ml"]
+fail_under = 80

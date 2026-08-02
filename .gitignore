@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Builds
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# Tests / coverage
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# ML artifacts
+*.joblib
+*.pkl
+*.onnx
+*.mlmodel
+mlflow/
+mlruns/
+mlflow.db
+*.db
+catboost_info/
+!ml/models/trained/model.joblib
+!ml/models/trained/metadata.json
+!ml/models/trained/model_comparison.csv
+ml/models/trained/*.bin
+ml/models/trained/*.cbm
+
+# Uploads / media
+media/
+uploads/
+storage/
+
+# Logs
+*.log
+logs/
+!.gitkeep
+
+# IDEs / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Celery / Redis
+celerybeat-schedule/
+*.pid
+
+# Prometheus / Grafana data
+prometheus_data/
+grafana_data/
+
+# Vercel / Railway
+.vercel/

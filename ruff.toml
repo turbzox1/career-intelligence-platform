@@ -1,0 +1,11 @@
+# Root ruff configuration covering files outside backend/ and ml/ (e.g. scripts/).
+line-length = 120
+target-version = "py312"
+
+[lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "C4", "E402"]
+ignore = ["B008", "BLE001", "C408", "RUF100"]
+
+[lint.per-file-ignores]
+"scripts/*" = ["E402", "E501"]
+"tests/*" = ["E501", "E402"]
